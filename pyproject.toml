@@ -1,10 +1,14 @@
 [project]
 name = "habitalidad-casa-transporte"
 version = "0.1.0"
-description = "Add your description here"
+description = "Proyecto enfocado en la determinacion y vizualizacion de la habitalidad de un hogar determinado por el transporte"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "folium>=0.20.0",
+    "networkx>=3.6.1",
+    "osmnx>=2.1.1",
+]
 
 [project.scripts]
 habitalidad-casa-transporte = "habitalidad_casa_transporte:main"
