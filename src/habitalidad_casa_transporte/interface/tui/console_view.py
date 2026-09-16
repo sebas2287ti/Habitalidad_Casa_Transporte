@@ -34,8 +34,9 @@ def start_menu():
 
 
     table = Table(show_header=False, box=False, padding=(0,2))
-    table.add_row("[bold green]1.[/bold green]", "[bold white]Calcular Factibilidad[/bold white]", "[dim white]--Ejecutar con parametros predefinidos[/dim white]")
+    table.add_row("[bold green]1.[/bold green]", "[bold white]Calcular Factibilidad[/bold white]", "[dim white]--Ejecutar con parametros definidos o predefinidos[/dim white]")
     table.add_row("[bold green]2.[/bold green]", "[bold white]Entrar a configuraciones[/bold white]" , "[dim white]--Modificar parametros[/dim white]")
+    table.add_row("[bold green]3.[/bold green]", "[bold white]Salir del programa[/bold white]" , "[dim white]--Cerrar programa[/dim white]")
 
     console.print(table)
 
@@ -44,7 +45,7 @@ def start_menu():
 
     option = Prompt.ask(
         "[bold yellow]Selecciona una de las opciones[/bold yellow]", 
-        choices=["1","2"]
+        choices=["1", "2", "3"]
     )
 
     return option
