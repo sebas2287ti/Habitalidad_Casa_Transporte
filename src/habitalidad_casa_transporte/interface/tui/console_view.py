@@ -2,7 +2,9 @@ import os
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
+from rich.prompt import FloatPrompt
 from rich.prompt import Prompt
+from rich.text import Text
 
 console = Console()
 
@@ -49,3 +51,39 @@ def start_menu():
     )
 
     return option
+
+def get_cords_menu():
+    clear_terminal()
+    
+    
+    start_text = Text.from_markup(
+        "[bold white]Ingresa por favor las cordenadas una por uno de los grafos[/bold white]",
+        justify="center"
+    )
+
+    console.print(
+        Panel(
+            start_text,
+            title="[bold violet] HABITALIDAD DE TRANSPORTE [bold violet]",
+            title_align="center",
+            border_style="bold violet",
+            padding=(1,1)
+        )
+    )
+    console.print("")
+
+
+    table = Table(show_header=False, box=False, padding=(0,2))
+    table.add_row("[bold white]Ingresa primero las cordenadas del node de inicio[/bold white]")
+    console.print(table)
+
+    console.print("\n" + "[bold violet]──" * 50 + "[bold violet]\n")
+
+
+    start_x_node = FloatPrompt.ask("Ingresa las cordenadas en X del nodo de inicio")
+    start_y_node = FloatPrompt.ask("Ingresa las cordenadas en y del nodo de inicio")
+    end_x_node = FloatPrompt.ask("Ingresa las cordenadas en y del nodo de destino")
+    end_y_node = FloatPrompt.ask("Ingresa las cordenadas en y del nodo de destino")
+
+    cords_nodes = [start_x_node, start_y_node, end_x_node, end_y_node]
+    return cords_nodes
