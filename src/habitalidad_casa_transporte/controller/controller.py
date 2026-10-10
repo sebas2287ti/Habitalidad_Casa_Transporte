@@ -38,7 +38,7 @@ class controller:
         
         self.G = buider.build_graph_map(self.G)
         
-        view_map.view_route_map(self.G)
+        #view_map.view_route_map(self.G)
         
         cords_nodes =  interface_view.get_cords_menu()
         
@@ -47,7 +47,7 @@ class controller:
         
         self.route = route_graph.route_ideal(self.G, self.start_node_cords, self.end_node_cords)
         
-        view_map_route.view_route_map(self.G, self.route)
+        #view_map_route.view_route_map(self.G, self.route)
         
         
     def change_config_menu(self):
