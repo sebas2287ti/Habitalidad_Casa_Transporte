@@ -4,6 +4,7 @@ import habitalidad_casa_transporte.core.graph_builder as buider
 import habitalidad_casa_transporte.core.calc_route as route_graph
 import habitalidad_casa_transporte.interface.ui.global_route_map_view as view_map_route
 import habitalidad_casa_transporte.interface.ui.global_map_view as view_map
+import habitalidad_casa_transporte.core.assing_weight as weight 
 
 class controller:
 
@@ -38,6 +39,8 @@ class controller:
         
         self.G = buider.build_graph_map(self.G)
         
+        self.G = weight.assing_weight_graft(self.G)
+
         #view_map.view_route_map(self.G)
         
         cords_nodes =  interface_view.get_cords_menu()
