@@ -1,9 +1,11 @@
+from turtle import pos
+
 import habitalidad_casa_transporte.interface.tui.console_view as interface_view
 import habitalidad_casa_transporte.core.map_downloader as downloader
 import habitalidad_casa_transporte.core.graph_builder as buider
 import habitalidad_casa_transporte.core.calc_route as route_graph
-import habitalidad_casa_transporte.interface.ui.global_route_map_view as view_map_route
-import habitalidad_casa_transporte.interface.ui.global_map_view as view_map
+import habitalidad_casa_transporte.interface.ui.flet_matploit_view as view_map_route     
+import habitalidad_casa_transporte.interface.ui.flet_matploit_view as view_map
 import habitalidad_casa_transporte.core.assing_weight as weight 
 
 class controller:
@@ -38,20 +40,18 @@ class controller:
         self.G = downloader.download_map(f"{self.City}, {self.Country}")
         
         self.G = buider.build_graph_map(self.G)
-        
-        self.G = weight.assing_weight_graft(self.G)
+        print("Grafo construido con éxito.")
+        print(list(self.G.nodes(data=True))[:2])
+        def calcular(origen, destino):
+            print("Calcular ruta:", origen, "->", destino)
 
-        #view_map.view_route_map(self.G)
-        
-        cords_nodes =  interface_view.get_cords_menu()
-        
-        self.start_node_cords = [cords_nodes[0], cords_nodes[1]]
-        self.end_node_cords = [cords_nodes[2], cords_nodes[3]]
-        
-        self.route = route_graph.route_ideal(self.G, self.start_node_cords, self.end_node_cords)
-        
-        #view_map_route.view_route_map(self.G, self.route)
-        
+        elegidos = view_map.mostrar_interfaz(
+            self.G,
+            on_calcular=calcular,
+            on_mapa_calor=lambda: print("Mapa de calor"),
+            on_seleccion=lambda s: print("Selección:", s),
+        )
+        print("Selección final:", elegidos)
         
     def change_config_menu(self):
         interface_view.change_parameters_menu()

@@ -15,6 +15,10 @@ velocity_for_street_type = {
     "service": 20, 
 }
 
+first_modifier = 1
+second_modifier = 1
+third_modifier = 1
+
 def assing_weight_graft(G):
     for u, v, data in G.edges(data=True):
         length_street = data['length'] 
@@ -27,6 +31,13 @@ def assing_weight_graft(G):
         time_travel_min = length_street / (velocity / 3.6) 
         data['travel_time'] = time_travel_min
 
+    return G
+
 def change_weight_for_street_type(G):
     for u, v, data in G.edges(data=True):
-        pass 
+        data['time_travel_traffic'] = data['travel_time'] * first_modifier * second_modifier * third_modifier
+
+    return G
+
+
+

@@ -52,6 +52,7 @@ def start_menu():
 
     return option
 
+#ya no se usa 
 def get_cords_menu():
     clear_terminal()
     

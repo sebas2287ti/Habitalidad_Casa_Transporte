@@ -5,6 +5,8 @@ description = "Proyecto enfocado en la determinacion y vizualizacion de la habit
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "flet>=1.0.4",
+    "flet-charts>=1.0.4",
     "folium>=0.20.0",
     "matplotlib>=3.11.2",
     "networkx>=3.6.1",
